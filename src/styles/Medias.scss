@@ -1,0 +1,14 @@
+@media (min-width: 768px) {
+    .container-app {
+      display: flex;
+      min-height: 100vh;
+    }
+  
+    aside {
+      background-color: $gray3;
+    }
+    .section-principal {
+      flex: 1;
+    }
+  }
+  

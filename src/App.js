@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Sidebar from './components/layout/Sidebar';
+import NavBar from './components/layout/Navbar';
+
+import Login from './components/auth/Login';
+import { AuthContext, AuthProvider } from './context/AuthContext';
+
+import Spinner from './components/movements/Spinner';
+
+const ListMovements = lazy(() =>
+  import('./components/movements/ListMovements')
+);
+const Me = lazy(() => import('./components/me/Me'));
 
 function App() {
+  const [auth, setAuth] = useContext(AuthContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Suspense fallback={<Spinner />}>
+        <AuthProvider value={[auth, setAuth]}>
+          <div className='container-app'>
+            <Sidebar />
+            <div className='section-principal'>
+              <NavBar />
+              <Switch>
+                <Route exact path='/movements' component={ListMovements} />
+                <Route exact path='/' component={Me} />
+                <Route exact path='/login' component={Login} />
+                <Route component={Login} />
+              </Switch>
+            </div>
+          </div>
+        </AuthProvider>
+      </Suspense>
+    </Router>
   );
 }
 

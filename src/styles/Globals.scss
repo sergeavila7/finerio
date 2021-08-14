@@ -1,0 +1,80 @@
+
+    $white: #ffffff;
+    $gray1: #edf2f6;
+    $gray2: #2f3848;
+    $gray3: #1a202d;
+    $black: #000000;
+$headingFont: "Raleway", sans-serif;
+$textFont: "Roboto", sans-serif;
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 62.5%;
+  }
+  body {
+    min-height: 100%;
+    background-color: $gray1;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: $textFont;
+  }
+  
+  h1,
+  h2 {
+    font-family: $headingFont;
+    font-weight: 900;
+    margin: 0 0 4rem 0;
+    text-align: center;
+    color: $gray2;
+  }
+  h1 span {
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color:$white !important;
+  }
+
+  /* BARRA LATERAL */
+aside {
+    padding: 3rem;
+  }
+
+  aside {
+    background-color: $gray3;
+  }
+
+
+  .icon{
+    font-size: 27px;
+  }
+
+td{
+    padding: 8px 0px;
+  }
+  tbody, tr{
+    text-align: center;
+  }
+
+  
+
+  
+  
+  
